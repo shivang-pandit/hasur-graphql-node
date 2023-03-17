@@ -1,0 +1,16 @@
+{
+  "name": "shivang-hasura-backend",
+  "version": "0.1.0",
+  "description": "The backend API for Hasura application, used for actions",
+  "main": "index.js",
+  "author": "Shivang Pandit",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.10.0"
+  }
+}
