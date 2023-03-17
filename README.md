@@ -41,13 +41,66 @@ $ docker compose down
 
 ```
 
-## Running the app normally
-
+## Hasura panel
 ```bash
-# development
-$ npm start
-
+$ http://localhost:8080/console
 ```
+
+## Hasura Acations Configuration
+```bash
+Login Action :~
+Webhook URL - http://host.docker.internal:3030/api/v1/login
+
+Action defination -
+type Mutation {
+  login(username: String!, password: String!): LoginResponse
+}
+
+Type Configuration -
+type LoginResponse {
+  token: String!
+}
+```
+```bash
+findusers Action :~
+Webhook URL - http://host.docker.internal:3030/api/v1/login
+
+Action defination -
+type Query {
+  findusers(radius: Int!): [userDetails]
+}
+
+Type Configuration -
+type userDetails {
+  id: Int!
+  first_name: String!
+  last_name: String!
+  gender: String!
+}
+```
+```bash
+userList Action :~
+Webhook URL - http://host.docker.internal:3030/api/v1/users
+
+Action defination -
+type Query {
+  userList(limit: Int!, page: Int!): userList
+}
+
+Type Configuration -
+type userList {
+  total: Int!
+  userDetails: [users!]
+}
+
+type users {
+  id: Int!
+  first_name: String!
+  last_name: String!
+  gender: String!
+}
+```
+
 
 ## Support
 
