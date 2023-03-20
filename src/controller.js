@@ -41,6 +41,7 @@ const searchUser = async (req, res) => {
             return res.status(400).json({ error: 'invalid token' });
         }
 
+        //we are just send user details, lat and long will return by hasura from relationship configure on action
         const result = await db.query(findUsers, [radius]);
     
         return res.json(result.rows);
